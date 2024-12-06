@@ -1,8 +1,9 @@
 #include <Person.h>
 
+int Person::id_count = 0;
 
-Person::Person(int id){
-     this->id = id;
+Person::Person(){
+    id=++id_count;
 };
 
 void Person::setdatos(string name, int age, int dni){
@@ -10,6 +11,11 @@ void Person::setdatos(string name, int age, int dni){
     this->age = age;
     this->dni = dni;
 
+
+};
+
+void Person::setname(string name){
+    this->name = name;
 
 };
 
@@ -21,6 +27,13 @@ string Person::getname(){
 int Person::getage(){
     return age;
     };
+
+
+
+int Person::getdni(){
+    return dni;
+    };
+
 
 int Person::getid(){
     return id;

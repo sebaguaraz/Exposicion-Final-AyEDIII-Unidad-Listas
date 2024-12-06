@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <list>
-#include <iterator>
 #include <memory>
 #include <Person.h>
 #include <ListNode.h>
@@ -73,7 +71,6 @@ int main(){
         cout << "Name:";
         cin >> name;
         Clinicaa->UpdateClient(id, name);
-        cout << "Se ah modificado!" << endl;
 
 
         
@@ -84,7 +81,6 @@ int main(){
 
         cout << "Ingrese el id del cliente a eliminar:";cin >> id;
         Clinicaa->DeleteClient(id);
-        cout << "Se ah eliminado!" << endl;
 
             break;
         

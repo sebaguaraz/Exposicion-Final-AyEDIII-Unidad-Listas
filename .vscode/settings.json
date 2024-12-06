@@ -3,6 +3,7 @@
         "vector": "cpp",
         "*.tcc": "cpp",
         "memory": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "ostream": "cpp"
     }
 }

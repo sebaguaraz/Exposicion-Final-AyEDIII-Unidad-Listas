@@ -1,3 +1,6 @@
+#ifndef PERSON_H
+#define PERSON_H
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -8,10 +11,13 @@ class Person
 {
 private:
     string name;
-    int age, id, dni;
+    int age, dni;
+    static int id_count ;
+    int id;
 public:
-    Person(int id);
+    Person();
     void setdatos(string name, int age, int dni);
+    void setname(string name);
     string getname();
     int getage();
     int getid();
@@ -20,3 +26,6 @@ public:
 
 
 };
+
+
+#endif // PERSON_H

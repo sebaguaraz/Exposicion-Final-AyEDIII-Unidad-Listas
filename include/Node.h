@@ -1,3 +1,6 @@
+#ifndef NODE_H
+#define NODE_H
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -6,13 +9,12 @@
 using namespace std;
 
 
-class Node
+struct Node
 {
-private:
+     
     shared_ptr<Node> siguiente;
     shared_ptr<Person> persona;
-public:
     Node(shared_ptr<Person> p);
-
 };
 
+#endif // NODE_H

@@ -1,12 +1,18 @@
+#ifndef CLINICA_H
+#define CLINICA_H
+
 #include <iostream>
 #include <memory>
 #include <string>
 #include <ListNode.h>
+#include <Node.h>
+#include <Person.h>
+
 
 class Clinica
 {
 private:
-    shared_ptr<ListNode> p;
+    shared_ptr<ListNode> list;
     
 public:
     Clinica(/* args */);
@@ -19,4 +25,4 @@ public:
 
 
 
-
+#endif // CLINICA_H
