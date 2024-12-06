@@ -27,8 +27,9 @@ void ListNode::AddTail(shared_ptr<Person> p)
     }
     else
     {
-        tail->siguiente = nuevoNodo;
         tail = nuevoNodo;
+        tail->siguiente = head;
+        head = nuevoNodo;
     }
 };
 
