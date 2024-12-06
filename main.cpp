@@ -5,19 +5,17 @@
 #include <ListNode.h>
 #include <Clinica.h>
 
-
-
 using namespace std;
 
-int main(){
-
-    
+int main()
+{
 
     int opcion, edad, id, dni;
     string name;
     shared_ptr<Person> ObjectPacient;
-    shared_ptr<Clinica> Clinicaa=make_shared<Clinica>();
-    do{
+    shared_ptr<Clinica> Clinicaa = make_shared<Clinica>();
+    do
+    {
         cout << "---------------------Menu------------  " << endl;
         cout << "1. Ingresar cliente al inicio de la lista." << endl;
         cout << "2. Ingresar cliente al final de la lista." << endl;
@@ -30,68 +28,64 @@ int main(){
         switch (opcion)
         {
         case 1:
-        cout << "Nombre:";
-        cin >> name;
-        cout << "Edad:"; 
-        cin >> edad;
-        cout << "DNI:"; 
-        cin >> dni;
+            cout << "Nombre:";
+            cin >> name;
+            cout << "Edad:";
+            cin >> edad;
+            cout << "DNI:";
+            cin >> dni;
 
-        ObjectPacient = make_shared<Person>();
-        ObjectPacient->setdatos(name, edad, dni);
+            ObjectPacient = make_shared<Person>();
+            ObjectPacient->setdatos(name, edad, dni);
 
-        Clinicaa->InsertPacientHead(ObjectPacient);
-        cout <<"Agregado!" << endl;
-            
+            Clinicaa->InsertPacientHead(ObjectPacient);
+            cout << "Agregado!" << endl;
+
             break;
         case 2:
-        cout << "Nombre:";
-        cin >> name;
-        cout << "Edad:"; 
-        cin >> edad;
-        cout << "DNI:"; 
-        cin >> dni;
+            cout << "Nombre:";
+            cin >> name;
+            cout << "Edad:";
+            cin >> edad;
+            cout << "DNI:";
+            cin >> dni;
 
-        ObjectPacient = make_shared<Person>();
-        ObjectPacient->setdatos(name, edad, dni);
+            ObjectPacient = make_shared<Person>();
+            ObjectPacient->setdatos(name, edad, dni);
 
-        Clinicaa->InsertPacientTail(ObjectPacient);
-        cout <<"Agregado!" << endl;
+            Clinicaa->InsertPacientTail(ObjectPacient);
+            cout << "Agregado!" << endl;
             break;
 
-        
         case 3:
 
-        Clinicaa->ShowPacients();
+            Clinicaa->ShowPacients();
 
             break;
-        
+
         case 4:
-        cout << "Ingrese el id del cliente a modificar:";cin >> id;
-        cout << "Name:";
-        cin >> name;
-        Clinicaa->UpdateClient(id, name);
-
-
-        
+            cout << "Ingrese el id del cliente a modificar:";
+            cin >> id;
+            cout << "Name:";
+            cin >> name;
+            Clinicaa->UpdateClient(id, name);
 
             break;
 
         case 5:
 
-        cout << "Ingrese el id del cliente a eliminar:";cin >> id;
-        Clinicaa->DeleteClient(id);
+            cout << "Ingrese el id del cliente a eliminar:";
+            cin >> id;
+            Clinicaa->DeleteClient(id);
 
             break;
-        
+
         default:
-            cout <<"Haz salido del ssitema exitosamente! " << endl;
+            cout << "Haz salido del ssitema exitosamente! " << endl;
             break;
         }
 
-    }while(opcion!=0);
-
-
+    } while (opcion != 0);
 
     return 0;
 }

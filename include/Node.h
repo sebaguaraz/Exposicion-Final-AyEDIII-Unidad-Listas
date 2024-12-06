@@ -8,10 +8,9 @@
 
 using namespace std;
 
-
 struct Node
 {
-     
+
     shared_ptr<Node> siguiente;
     shared_ptr<Person> persona;
     Node(shared_ptr<Person> p);

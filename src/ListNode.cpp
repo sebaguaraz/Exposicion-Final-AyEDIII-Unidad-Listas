@@ -1,77 +1,80 @@
 #include <ListNode.h>
 
-
-ListNode::ListNode(){
-        head = nullptr;
-        tail =nullptr;
+ListNode::ListNode()
+{
+    head = nullptr;
+    tail = nullptr;
 };
 
-void ListNode::AddHead(shared_ptr<Person> p){
+void ListNode::AddHead(shared_ptr<Person> p)
+{
     shared_ptr<Node> nuevoNodo = make_shared<Node>(p);
-     nuevoNodo->siguiente = head;
+    nuevoNodo->siguiente = head;
+    head = nuevoNodo;
+    if (tail == nullptr)
+    {
+        tail = nuevoNodo;
+    }
+};
+
+void ListNode::AddTail(shared_ptr<Person> p)
+{
+    shared_ptr<Node> nuevoNodo = make_shared<Node>(p);
+    if (head == nullptr) // si la cabeza es null, el nodo creado es la nueva cabeza
+    {
         head = nuevoNodo;
-        if (tail == nullptr) {
-            tail = nuevoNodo;
-        }
+        tail = nuevoNodo;
+    }
+    else
+    {
+        tail->siguiente = nuevoNodo;
+        tail = nuevoNodo;
+    }
 };
 
-void ListNode::AddTail(shared_ptr<Person> p){
-    shared_ptr<Node> nuevoNodo = make_shared<Node>(p);
-        if (head==nullptr)//si la cabeza es null, el nodo creado es la nueva cabeza
-        {
-            head = nuevoNodo;
-            tail = nuevoNodo;
-        }
-        else {
-            tail->siguiente = nuevoNodo;
-            tail = nuevoNodo;
-        }
-};
-
-
-void ListNode::Update(int id, string name){
-    shared_ptr<Node> actual= head;
-    while (actual != nullptr) {//mientras el actual no sea null
-        if (actual->persona->getid() == id) {//busca el valor 
-            actual->persona->setname(name); 
+void ListNode::Update(int id, string name)
+{
+    shared_ptr<Node> actual = head;
+    while (actual != nullptr)
+    { // mientras el actual no sea null
+        if (actual->persona->getid() == id)
+        { // busca el valor
+            actual->persona->setname(name);
             cout << "Se ah modificado!" << endl;
             return;
         }
         actual = actual->siguiente;
     }
-    cout <<"No se encontro el id, no existente" << endl;
-
+    cout << "No se encontro el id, no existente" << endl;
 };
 
-void ListNode::ShowAll(){
+void ListNode::ShowAll()
+{
     shared_ptr<Node> actual = head;
-    while (actual!=nullptr)
+    while (actual != nullptr)
     {
         cout << "id: " << actual->persona->getid() << endl;
-        cout << "nombre: "<< actual->persona->getname() << ", edad: " << actual->persona->getage() << ", dni: " << actual->persona->getdni() << endl;
+        cout << "nombre: " << actual->persona->getname() << ", edad: " << actual->persona->getage() << ", dni: " << actual->persona->getdni() << endl;
         actual = actual->siguiente;
-
     }
-
-
-        
 };
 
-void ListNode::DeleteAny(int id){
+void ListNode::DeleteAny(int id)
+{
 
-    //caso 1: si esta vacio
+    // caso 1: si esta vacio
     if (isEmpty())
     {
-        cout << "no se puede eliminar un elemento de una lista vacia"<< endl;
+        cout << "no se puede eliminar un elemento de una lista vacia" << endl;
         return;
     }
-    
-    //caso 2: si esta en el principio de la list
+
+    // caso 2: si esta en el principio de la list
     if (head->persona->getid() == id)
     {
         shared_ptr<Node> nodo_eliminar = head;
         head = head->siguiente;
-        if (head==nullptr)
+        if (head == nullptr)
         {
             tail = nullptr;
         }
@@ -81,34 +84,33 @@ void ListNode::DeleteAny(int id){
         return;
     }
 
-    //caso 3: eliminar un nodo en el medio o al final
+    // caso 3: eliminar un nodo en el medio o al final
     shared_ptr<Node> actual = head;
     shared_ptr<Node> anterior = nullptr;
 
-    while (actual!=nullptr&& actual->persona->getid()!=id)
+    while (actual != nullptr && actual->persona->getid() != id)
     {
-        anterior=actual;
+        anterior = actual;
         actual = actual->siguiente;
     }
 
-    if (actual == nullptr) {
-            cout << "No se encontro el id " << id << ", no existe" << endl;
-            return;
-        }
-            
-    anterior->siguiente = actual->siguiente;//el anterior apuntara al siguiente del actual, el actual se eliminara
-    if (actual->siguiente == nullptr) {//si el que le sigue del actual es null, entonces tail se modifica para que apunte al anterior
-            tail = anterior;
-        }
-    
+    if (actual == nullptr)
+    {
+        cout << "No se encontro el id " << id << ", no existe" << endl;
+        return;
+    }
+
+    anterior->siguiente = actual->siguiente; // el anterior apuntara al siguiente del actual, el actual se eliminara
+    if (actual->siguiente == nullptr)
+    { // si el que le sigue del actual es null, entonces tail se modifica para que apunte al anterior
+        tail = anterior;
+    }
+
     cout << "Se ah eliminado!" << endl;
     actual.reset();
-        
-        
-    
-    
-    };
+};
 
-bool ListNode::isEmpty(){
-        return head==nullptr;
-         }
+bool ListNode::isEmpty()
+{
+    return head == nullptr;
+}

@@ -7,10 +7,7 @@
 #include <Node.h>
 #include <Person.h>
 
-
-
 using namespace std;
-
 
 class ListNode
 {
@@ -27,6 +24,5 @@ public:
     void DeleteAny(int id);
     bool isEmpty();
 };
-
 
 #endif // LISTNODE_H

@@ -2,39 +2,39 @@
 
 int Person::id_count = 0;
 
-Person::Person(){
-    id=++id_count;
+Person::Person()
+{
+    id = ++id_count;
 };
 
-void Person::setdatos(string name, int age, int dni){
+void Person::setdatos(string name, int age, int dni)
+{
     this->name = name;
     this->age = age;
     this->dni = dni;
-
-
 };
 
-void Person::setname(string name){
+void Person::setname(string name)
+{
     this->name = name;
-
 };
 
-
-string Person::getname(){
+string Person::getname()
+{
     return name;
-    };
+};
 
-int Person::getage(){
+int Person::getage()
+{
     return age;
-    };
+};
 
-
-
-int Person::getdni(){
+int Person::getdni()
+{
     return dni;
-    };
+};
 
-
-int Person::getid(){
+int Person::getid()
+{
     return id;
-    };
+};

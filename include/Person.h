@@ -6,14 +6,14 @@
 #include <string>
 using namespace std;
 
-
 class Person
 {
 private:
     string name;
     int age, dni;
-    static int id_count ;
+    static int id_count;
     int id;
+
 public:
     Person();
     void setdatos(string name, int age, int dni);
@@ -22,10 +22,6 @@ public:
     int getage();
     int getid();
     int getdni();
-
-
-
 };
-
 
 #endif // PERSON_H
