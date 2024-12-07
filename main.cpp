@@ -1,90 +1,81 @@
+// - main.cpp
+#include <cola.hpp>
+#include <pila.hpp>
+#include <persona.hpp>
+#include <paquete.hpp>
 #include <iostream>
-#include <string>
-#include <memory>
-#include <Person.h>
-#include <ListNode.h>
-#include <Clinica.h>
 
 using namespace std;
 
 int main()
 {
+    Cola<Persona> clinica;
+    Pila<Paquete> camion;
 
-    int opcion, edad, id, dni;
-    string name;
-    shared_ptr<Person> ObjectPacient;
-    shared_ptr<Clinica> Clinicaa = make_shared<Clinica>();
+    int opcion;
     do
     {
-        cout << "---------------------Menu------------  " << endl;
-        cout << "1. Ingresar cliente al inicio de la lista." << endl;
-        cout << "2. Ingresar cliente al final de la lista." << endl;
-        cout << "3. Listar clientes." << endl;
-        cout << "4. Modificar cliente." << endl;
-        cout << "5. Borrar cliente." << endl;
-        cout << "0. Salir del sistema." << endl;
-        cout << "ingrese:";
+        cout << "\nMenu Principal:\n";
+        cout << "1. Encolar Persona\n";
+        cout << "2. Desencolar Persona\n";
+        cout << "3. Mostrar Personas en Cola\n";
+        cout << "4. Apilar Paquete\n";
+        cout << "5. Desapilar Paquete\n";
+        cout << "6. Mostrar Paquetes en Pila\n";
+        cout << "0. Salir\n";
+        cout << "Seleccione una opción: ";
         cin >> opcion;
+
         switch (opcion)
         {
         case 1:
-            cout << "Nombre:";
-            cin >> name;
-            cout << "Edad:";
+        {
+            string nombre, motivoConsulta;
+            int edad;
+            cout << "Ingrese nombre: ";
+            cin.ignore();
+            getline(cin, nombre);
+            cout << "Ingrese edad: ";
             cin >> edad;
-            cout << "DNI:";
-            cin >> dni;
-
-            ObjectPacient = make_shared<Person>();
-            ObjectPacient->setdatos(name, edad, dni);
-
-            Clinicaa->InsertPacientHead(ObjectPacient);
-            cout << "Agregado!" << endl;
-
-            break;
-        case 2:
-            cout << "Nombre:";
-            cin >> name;
-            cout << "Edad:";
-            cin >> edad;
-            cout << "DNI:";
-            cin >> dni;
-
-            ObjectPacient = make_shared<Person>();
-            ObjectPacient->setdatos(name, edad, dni);
-
-            Clinicaa->InsertPacientTail(ObjectPacient);
-            cout << "Agregado!" << endl;
-            break;
-
-        case 3:
-
-            Clinicaa->ShowPacients();
-
-            break;
-
-        case 4:
-            cout << "Ingrese el id del cliente a modificar:";
-            cin >> id;
-            cout << "Name:";
-            cin >> name;
-            Clinicaa->UpdateClient(id, name);
-
-            break;
-
-        case 5:
-
-            cout << "Ingrese el id del cliente a eliminar:";
-            cin >> id;
-            Clinicaa->DeleteClient(id);
-
-            break;
-
-        default:
-            cout << "Haz salido del ssitema exitosamente! " << endl;
+            cin.ignore();
+            cout << "Ingrese motivo de consulta: ";
+            getline(cin, motivoConsulta);
+            clinica.encolar(Persona(nombre, edad, motivoConsulta));
             break;
         }
-
+        case 2:
+            clinica.desencolar();
+            break;
+        case 3:
+            clinica.showInfo();
+            break;
+        case 4:
+        {
+            int id;
+            float peso;
+            string destino;
+            cout << "Ingrese ID del paquete: ";
+            cin >> id;
+            cout << "Ingrese peso del paquete: ";
+            cin >> peso;
+            cin.ignore();
+            cout << "Ingrese destino del paquete: ";
+            getline(cin, destino);
+            camion.apilar(Paquete(id, peso, destino));
+            break;
+        }
+        case 5:
+            camion.desapilar();
+            break;
+        case 6:
+            camion.showInfo();
+            break;
+        case 0:
+            cout << "Saliendo del programa...\n";
+            break;
+        default:
+            cout << "Opción no válida. Intente nuevamente.\n";
+        }
     } while (opcion != 0);
 
     return 0;
