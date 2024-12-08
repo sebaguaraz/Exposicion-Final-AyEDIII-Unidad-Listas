@@ -1,7 +1,7 @@
-#ifndef COLA_HPP
-#define COLA_HPP
+#ifndef COLA_H
+#define COLA_H
 
-#include <nodo.hpp>
+#include "../include/nodo.h"
 #include <iostream>
 
 template <typename T>
@@ -20,6 +20,6 @@ public:
     void showInfo() const;
 };
 
-#include <cola.cpp>
+#include "../src/cola.tpp"
 
 #endif

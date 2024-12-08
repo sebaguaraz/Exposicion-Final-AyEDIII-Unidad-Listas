@@ -1,5 +1,5 @@
 // - paquete.cpp
-#include <paquete.hpp>
+#include <paquete.h>
 
 Paquete::Paquete(int id, float peso, const std::string &destino)
     : id(id), peso(peso), destino(destino) {}

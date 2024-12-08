@@ -1,9 +1,9 @@
-#ifndef PERSONA_HPP
-#define PERSONA_HPP
+#ifndef PERSONA_H
+#define PERSONA_H
 
 #include <string>
 #include <iostream>
-#include <interface.hpp>
+#include "interface.h"
 
 class Persona : public Interface
 {
@@ -19,7 +19,5 @@ public:
     std::string obtenerMotivoConsulta() const;
     void showData() const override;
 };
-
-#include <persona.cpp>
 
 #endif

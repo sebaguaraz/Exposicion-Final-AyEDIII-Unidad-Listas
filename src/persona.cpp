@@ -1,4 +1,4 @@
-#include <persona.hpp>
+#include <persona.h>
 
 Persona::Persona(const std::string &nombre, int edad, const std::string &motivoConsulta)
     : nombre(nombre), edad(edad), motivoConsulta(motivoConsulta) {}

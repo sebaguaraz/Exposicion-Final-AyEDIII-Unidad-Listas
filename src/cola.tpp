@@ -1,5 +1,5 @@
 // - cola.cpp
-#include <cola.hpp>
+#include "../include/cola.h"
 
 template <typename T>
 Cola<T>::Cola() : frente(nullptr), fin(nullptr) {}

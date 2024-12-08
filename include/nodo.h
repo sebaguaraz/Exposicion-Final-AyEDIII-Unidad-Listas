@@ -1,6 +1,6 @@
 // - nodo.hpp
-#ifndef NODO_HPP
-#define NODO_HPP
+#ifndef NODO_H
+#define NODO_H
 
 #include <memory>
 
@@ -14,6 +14,6 @@ public:
     Nodo(const T &valor);
 };
 
-#include <nodo.cpp>
+#include "../src/nodo.tpp"
 
 #endif

@@ -1,9 +1,9 @@
-#ifndef PAQUETE_HPP
-#define PAQUETE_HPP
+#ifndef PAQUETE_H
+#define PAQUETE_H
 
 #include <string>
 #include <iostream>
-#include <interface.hpp>
+#include "interface.h"
 
 class Paquete : public Interface
 {
@@ -19,7 +19,5 @@ public:
     std::string obtenerDestino() const;
     void showData() const override;
 };
-
-#include <paquete.cpp>
 
 #endif

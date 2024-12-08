@@ -1,7 +1,7 @@
-#ifndef PILA_HPP
-#define PILA_HPP
+#ifndef PILA_H
+#define PILA_H
 
-#include <nodo.hpp>
+#include "../include/nodo.h"
 #include <iostream>
 
 template <typename T>
@@ -19,6 +19,6 @@ public:
     void showInfo() const;
 };
 
-#include <pila.cpp>
+#include "../src/pila.tpp"
 
 #endif
