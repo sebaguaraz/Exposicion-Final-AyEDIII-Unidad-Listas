@@ -1,7 +1,7 @@
 #ifndef PILA_HPP
 #define PILA_HPP
 
-#include "nodo.hpp"
+#include <nodo.hpp>
 #include <iostream>
 
 template <typename T>
@@ -18,5 +18,7 @@ public:
     bool estaVacia() const;
     void showInfo() const;
 };
+
+#include <pila.cpp>
 
 #endif

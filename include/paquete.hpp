@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "interface.hpp"
+#include <interface.hpp>
 
 class Paquete : public Interface
 {
@@ -19,5 +19,7 @@ public:
     std::string obtenerDestino() const;
     void showData() const override;
 };
+
+#include <paquete.cpp>
 
 #endif

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <iostream>
-#include "interface.hpp"
+#include <interface.hpp>
 
 class Persona : public Interface
 {
@@ -19,5 +19,7 @@ public:
     std::string obtenerMotivoConsulta() const;
     void showData() const override;
 };
+
+#include <persona.cpp>
 
 #endif

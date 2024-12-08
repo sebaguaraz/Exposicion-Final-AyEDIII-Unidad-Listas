@@ -14,4 +14,6 @@ public:
     Nodo(const T &valor);
 };
 
+#include <nodo.cpp>
+
 #endif

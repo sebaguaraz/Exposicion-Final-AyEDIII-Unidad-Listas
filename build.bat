@@ -1,4 +1,4 @@
-@echo off
+
 
 :: Compilo código objeto
 :: Enlazo cabecera con el cpp y genero los objetos
