@@ -21,9 +21,11 @@ int main()
         cout << "1. Encolar Persona\n";
         cout << "2. Desencolar Persona\n";
         cout << "3. Mostrar Personas en Cola\n";
-        cout << "4. Apilar Paquete\n";
-        cout << "5. Desapilar Paquete\n";
-        cout << "6. Mostrar Paquetes en Pila\n";
+        cout << "4. Buscar Personas en Cola\n";
+        cout << "5. Apilar Paquete\n";
+        cout << "6. Desapilar Paquete\n";
+        cout << "7. Mostrar Paquetes en Pila\n";
+        cout << "8. Buscar Paquetes en Pila\n";
         cout << "0. Salir\n";
         cout << "Seleccione una opci\u00f3n: ";
         cin >> opcion;
@@ -53,6 +55,20 @@ int main()
             break;
         case 4:
         {
+            std::string nombreBuscado;
+            std::cout << "Ingrese el nombre de la persona a buscar: ";
+            std::cin.ignore();
+            std::getline(std::cin, nombreBuscado);
+
+            Persona encontrada = clinica->buscar([&](const Persona &p) {
+                return p.obtenerNombre() == nombreBuscado;
+            });
+            std::cout << "Persona encontrada: ";
+            encontrada.showData();
+            break;
+        }
+        case 5:
+        {
             int id;
             float peso;
             string destino;
@@ -66,17 +82,30 @@ int main()
             camion->apilar(Paquete(id, peso, destino));
             break;
         }
-        case 5:
+        case 6:
             camion->desapilar();
             break;
-        case 6:
+        case 7:
             camion->showInfo();
             break;
+        case 8:
+        {
+            int idBuscado;
+            std::cout << "Ingrese el ID del paquete a buscar: ";
+            std::cin >> idBuscado;
+
+            Paquete encontrado = camion->buscar([&](const Paquete &p) {
+                return p.obtenerId() == idBuscado;
+            });
+            std::cout << "Paquete encontrado: ";
+            encontrado.showData();
+            break;
+        }
         case 0:
             cout << "Saliendo del programa...\n";
             break;
         default:
-            cout << "Opci\u00f3n no v\u00e1lida. Intente nuevamente.\n";
+            cout << "Opción no válida. Intente nuevamente.\n";
         }
     } while (opcion != 0);
 

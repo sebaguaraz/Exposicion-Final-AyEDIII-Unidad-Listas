@@ -48,3 +48,18 @@ void Pila<T>::showInfo() const
         actual = actual->siguiente;
     }
 }
+
+template <typename T>
+T Pila<T>::buscar(const std::function<bool(const T &)> &criterio) const
+{
+    auto actual = tope;
+    while (actual)
+    {
+        if (criterio(actual->dato))
+        {
+            return actual->dato; // Retorna el dato si cumple el criterio.
+        }
+        actual = actual->siguiente;
+    }
+    throw std::runtime_error("Elemento no encontrado en la pila.");
+}

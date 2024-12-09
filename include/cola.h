@@ -3,6 +3,7 @@
 
 #include "../include/nodo.h"
 #include <iostream>
+#include <functional>
 
 template <typename T>
 class Cola
@@ -18,6 +19,7 @@ public:
     T obtenerFrente() const;
     bool estaVacia() const;
     void showInfo() const;
+    T buscar(const std::function<bool(const T &)> &criterio) const;
 };
 
 #include "../src/cola.tpp"

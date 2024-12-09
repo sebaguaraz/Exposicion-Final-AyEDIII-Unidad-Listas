@@ -60,3 +60,18 @@ void Cola<T>::showInfo() const
         actual = actual->siguiente;
     }
 }
+
+template <typename T>
+T Cola<T>::buscar(const std::function<bool(const T &)> &criterio) const
+{
+    auto actual = frente;
+    while (actual)
+    {
+        if (criterio(actual->dato))
+        {
+            return actual->dato; // Retorna el dato si cumple el criterio.
+        }
+        actual = actual->siguiente;
+    }
+    throw std::runtime_error("Elemento no encontrado en la cola.");
+}

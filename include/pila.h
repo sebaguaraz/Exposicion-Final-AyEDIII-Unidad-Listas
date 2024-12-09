@@ -3,6 +3,7 @@
 
 #include "../include/nodo.h"
 #include <iostream>
+#include <functional>
 
 template <typename T>
 class Pila
@@ -17,6 +18,7 @@ public:
     T obtenerTope() const;
     bool estaVacia() const;
     void showInfo() const;
+    T buscar(const std::function<bool(const T &)> &criterio) const;
 };
 
 #include "../src/pila.tpp"
