@@ -1,6 +1,3 @@
-#Las funciones trabajan directamente con la lista que se pasa como parámetro. 
-# Dado que las listas son mutables en Python, 
-# los cambios realizados dentro de las funciones afectan la lista original.
 
 def agregar_inicio(lista, valor):
 
