@@ -1,6 +1,5 @@
-
 def agregar_inicio(lista, valor):
-
+    
     lista.insert(0, valor)
     print(f"{valor} ha sido agregado al inicio de la lista.")
 
@@ -34,8 +33,8 @@ def mostrar_lista(lista):
     if not lista:
         print("La lista está vacía.")
     else:
-        for i in lista:  
-            print("valor:", i)
+        for i in range(0, len(lista)):
+            print(lista[i])
 
 
 def main():
