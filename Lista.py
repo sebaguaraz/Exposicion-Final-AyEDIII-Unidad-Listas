@@ -1,3 +1,7 @@
+#Las funciones trabajan directamente con la lista que se pasa como parámetro. 
+# Dado que las listas son mutables en Python, 
+# los cambios realizados dentro de las funciones afectan la lista original.
+
 def agregar_inicio(lista, valor):
 
     lista.insert(0, valor)
@@ -33,7 +37,8 @@ def mostrar_lista(lista):
     if not lista:
         print("La lista está vacía.")
     else:
-        print("Lista actual:", lista)
+        for i in lista:  
+            print("valor:", i)
 
 
 def main():
@@ -49,27 +54,29 @@ def main():
         print("0. Salir")
         
         opcion = int(input("Seleccione una opción: "))
+
+        match opcion:
         
-        if opcion == 1:
-            valor= int(input("Ingrese el valor a agregar al inicio: "))
-            agregar_inicio(lista, valor)
-        elif opcion == 2:
-            valor= int(input("Ingrese el valor a agregar al final: "))
-            agregar_final(lista, valor)
-        elif opcion == 3:
-            valor= int(input("Ingrese el valor a agregar: "))
-            posicion= int(input("Ingrese la posicion donde desea agregar el valor: "))
-            agregar_en_posicion(lista, valor, posicion)
-        elif opcion == 4:
-            valor= int(input("Ingrese el valor a eliminar: "))
-            eliminar_elemento(lista, valor)
-        elif opcion == 5:
-            mostrar_lista(lista)
-        elif opcion == 0:
-            print("Saliendo del programa.")
-            break
-        else:
-            print("Opción no válida. Intente de nuevo.")
+            case 1:
+                valor= int(input("Ingrese el valor a agregar al inicio: "))
+                agregar_inicio(lista, valor)
+            case 2:
+                valor= int(input("Ingrese el valor a agregar al final: "))
+                agregar_final(lista, valor)
+            case 3:
+                valor= int(input("Ingrese el valor a agregar: "))
+                posicion= int(input("Ingrese la posicion donde desea agregar el valor: "))
+                agregar_en_posicion(lista, valor, posicion)
+            case 4:
+                valor= int(input("Ingrese el valor a eliminar: "))
+                eliminar_elemento(lista, valor)
+            case 5:
+                mostrar_lista(lista)
+            case 0:
+                print("Saliendo del programa.")
+                break
+            case _:
+                print("Opción no válida. Intente de nuevo.")
 
 
 if __name__ == "__main__":
